@@ -1,0 +1,27 @@
+.btnCategorie{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    
+    background-color: #d796c2;
+    border-radius: 50px;
+    margin: 10px;
+    text-decoration: none;
+    .imgCategorie{
+        padding: 10px;
+    }
+    .titleCategorie{
+        padding: 10px;
+        font-family: 'Mouse Memoirs', sans-serif;
+        font-size: 2em;
+        font-weight: normal;
+        margin:0px;
+        color: black;
+    }
+    &:hover{
+        background-color: #bc86ad;
+    }
+}
