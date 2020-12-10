@@ -2,4 +2,11 @@
     padding: 20px;
     background-color: white;
     border-radius: 50% 0px 0px 50%;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    &:hover{
+        background-color: #e5e5e5;
+    }
 }

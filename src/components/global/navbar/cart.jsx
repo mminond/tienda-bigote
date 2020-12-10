@@ -1,12 +1,10 @@
 import './cart.scss';
 import { HiShoppingCart } from "react-icons/hi";
 
-function Cart() {
-	return (
-		<div className="cart">
-			<HiShoppingCart size={32} color='black' />
-		</div>
-	);
-}
+const Cart = ()  => (
+	<button className="cart">
+		<HiShoppingCart size={32} color='black' />
+	</button>
+)
 
 export default Cart;
