@@ -19,7 +19,7 @@ function Categories() {
 	return (
 		<nav className="navCategories">
 			{categories.map(category => 
-				<Category
+				<Category key={category.categoryId}
 					id={category.categoryId}
 					title={category.title}
 					image={category.imageCategory}
