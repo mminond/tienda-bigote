@@ -1,6 +1,6 @@
 .itemlistcontainer{
     background-color: #fdf38b;
-    .itellist-title{
+    .itemlist-title{
         display: flex;
         flex-direction: row;
 	    flex-wrap: wrap;
@@ -10,9 +10,24 @@
         h3{
             margin: 0px;
             font-family: 'Mouse Memoirs', sans-serif;
-            font-size: 1.5em;
+            font-size: 2rem;
             font-weight: normal;
         }
     }
-    
+    .itemListProducts{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding: 10px;
+    }
+    .cargando{
+        font-family: 'Mouse Memoirs', sans-serif;
+        font-size: 2rem;
+        font-weight: normal;
+		margin: 20px;
+		text-align: center;
+    }
 }
