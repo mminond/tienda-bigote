@@ -18,7 +18,7 @@ function ProductDetail() {
 	}, []);
 
 	return (
-		<section>
+		<article className="productDetail">
 			{
 				product.length ?
 					<>
@@ -30,7 +30,7 @@ function ProductDetail() {
 					<p className="cargando">Cargando</p>
 			}
 
-		</section>
+		</article>
 	);
 }
 

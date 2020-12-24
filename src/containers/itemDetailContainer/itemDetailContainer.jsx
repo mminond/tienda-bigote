@@ -3,7 +3,9 @@ import ProductDetail from '../../components/productDetail/productDetail';
 
 function ItemDetailContainer() {
 	return (
-        <ProductDetail />
+		<section className="itemDetailContainer">
+			<ProductDetail />
+		</section>
 	);
 }
 
