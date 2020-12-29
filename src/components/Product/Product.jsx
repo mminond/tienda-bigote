@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from "react";
 import './Product.scss';
 import CountContainer from "./CountContainer";
@@ -23,6 +24,7 @@ function Product({ id, image, title, price, stock }) {
 			<p className="productPrice">${price}</p>
 			<CountContainer stock={stock} count={count} add={add} less={less} />
 			<button className="productAdd">Agregar</button>
+			<Link to="/detail" className="productAdd">Ver más</Link>
 		</div>
 	);
 }

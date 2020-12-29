@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import './logo.scss';
 
 const Logo = ()  => (
-	<div className="logo-tb">la tienda de Don Bigote</div>
+	<Link to="/" className="logo-tb">la tienda de Don Bigote</Link>
 )
 
 export default Logo;
