@@ -18,7 +18,7 @@ function App() {
 				<Route path="/cart">
 					<Cart />
 				</Route>
-				<Route path="/Detail">
+				<Route path="/detail">
 					<ItemDetailContainer />
 				</Route>
 				<Route path="*">
