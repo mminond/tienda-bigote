@@ -1,10 +1,15 @@
+import { useParams } from 'react-router-dom';
 import './productDetail.scss';
 import ItemDetailContainer from "../containers/itemDetailContainer/itemDetailContainer";
 
-function Home() {
+function ProductDetail() {
+	const { itemId } = useParams();
 	return (
-        <ItemDetailContainer/>
+		<>
+			<p>itemId: {itemId}</p>
+			<ItemDetailContainer />
+		</>
 	);
 }
 
-export default Home;
+export default ProductDetail;
