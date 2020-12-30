@@ -12,5 +12,15 @@ Usado para trabajar mas comodamente los estilos y tambien usan sus funcionalidad
 ### react-icons
 Para el uso de iconografía de forma simple y dinámica.
 
+## Rutas
+/ -> Home
+/cart  -> Carro de compras
+/category/:categoryId -> Categoría
+/detail/:itemId -> Detalle Producto
+* -> Error404
+
+## Screenshot
+Matias Minond
+
 ## Autor
 Matias Minond
