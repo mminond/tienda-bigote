@@ -13,11 +13,11 @@ Usado para trabajar mas comodamente los estilos y tambien usan sus funcionalidad
 Para el uso de iconografía de forma simple y dinámica.
 
 ## Rutas
-/ -> Home
-/cart  -> Carro de compras
-/category/:categoryId -> Categoría
-/detail/:itemId -> Detalle Producto
-* -> Error404
+- / -> Home
+- /cart  -> Carro de compras
+- /category/:categoryId -> Categoría
+- /detail/:itemId -> Detalle Producto
+- * -> Error404
 
 ## Screenshot
 Matias Minond
