@@ -1,0 +1,41 @@
+.dealsListContainer{
+    background-color: #fdf38b;
+    .titleDealsListContainer{
+        display: flex;
+        flex-direction: row;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    align-items: center;
+	    align-content: center;
+        h3{
+            margin: 15px 0px 15px 0px ;
+            font-family: 'Mouse Memoirs', sans-serif;
+            font-size: 2rem;
+            font-weight: normal;
+        }
+    }
+    .itemListProducts{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .cargandoDiv{
+        background: rgba(0, 0, 0, 0.2);
+        height: 360px;
+        display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+	    align-content: center;
+    }
+    .cargandoTitulo{
+        font-family: 'Mouse Memoirs', sans-serif;
+        font-size: 2rem;
+        font-weight: normal;
+		margin: 20px;       
+    }
+}

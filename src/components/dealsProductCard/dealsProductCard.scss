@@ -1,0 +1,43 @@
+.dealProductCard{
+    text-decoration: none;
+    height: 200px;
+    width: 200px;
+	font-family: 'Mouse Memoirs', sans-serif;
+    display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+	align-items: stretch;
+    border:6px solid #6fccd9;
+	margin: 0px 10px 20px 10px;
+    border-radius: 40px;
+    transition: transform .2s;
+    &:hover{
+        -ms-transform: scale(1.1); /* IE 9 */
+        -webkit-transform: scale(1.1); /* Safari 3-8 */
+        transform: scale(1.1); 
+    }
+    .dealDescriptionProductCard{
+        width: 170px;
+        color: white;
+        display: flex;
+	    flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 0px 0px 34px 34px;
+        padding: 10px 15px 10px 15px;
+        .dealTitleProductCard{
+            margin: 0px;
+            font-weight: normal;
+            font-size: 1.5rem;
+        }
+        .dealPriceProductCard{
+            font-size: 1.3rem;
+            background-color: white;
+            border-radius: 30px;
+            padding: 10px;
+            margin: 0px;
+            color: black;
+        }
+    }
+}

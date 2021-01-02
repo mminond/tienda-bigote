@@ -1,9 +1,9 @@
 import './home.scss';
-import Itemlistcontainer from "../containers/itemlistcontainer/itemlistcontainer";
+import DealsListContainer from "../containers/dealsListContainer/dealsListContainer";
 
 function Home() {
 	return (
-        <Itemlistcontainer/>
+        <DealsListContainer/>
 	);
 }
 
