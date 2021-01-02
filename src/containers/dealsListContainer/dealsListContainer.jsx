@@ -7,8 +7,6 @@ function DealsListContainer() {
     const [items, setItems] = useState([]);
     var products = [];
     AllItems.forEach(item => {
-        console.log(item.productTitle);
-        console.log(item.isDeal);
         if (item.isDeal) {
             products.push(item);
         }
