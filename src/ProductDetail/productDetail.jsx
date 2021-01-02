@@ -6,8 +6,7 @@ function ProductDetail() {
 	const { itemId } = useParams();
 	return (
 		<>
-			<p>itemId: {itemId}</p>
-			<ItemDetailContainer />
+			<ItemDetailContainer id={itemId} />
 		</>
 	);
 }
