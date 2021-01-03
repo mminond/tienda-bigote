@@ -4,13 +4,11 @@ import Product from '../../components/Product/Product';
 import AllItems from '../../assets/json/products.json';
 
 
-function ItemListContainer() {
+function ItemListContainer({categoryTitle, categoryId}) {
 	const [items, setItems] = useState([]);
 	var products = [];
 	AllItems.forEach(item => {
-		console.log(item.productTitle);
-		console.log(item.isDeal);
-		if (item.isDeal) {
+		if (item.categoryId === categoryId) {
 			products.push(item);
 		}
 	});
@@ -29,7 +27,7 @@ function ItemListContainer() {
 	return (
 		<div className="itemlistcontainer">
 			<div className="itemlist-title">
-				<h3>Ofertas</h3>
+				<h3>{categoryTitle}</h3>
 			</div>
 			{
 				items.length ?
