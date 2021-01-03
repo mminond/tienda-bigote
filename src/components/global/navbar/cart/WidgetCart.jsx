@@ -1,8 +1,8 @@
 import './WidgetCart.scss';
 
-function WidgetCart() {
+function WidgetCart({showWidgetCart}) {
 	return (
-		<div className="widgetCart">
+		<div className={`widgetCart ${showWidgetCart ? 'open' : 'close'}`}>
             <h3 className="titleWidgetCart">Carrito de Compras</h3>
 			<div className="listItemsidgetCart">
 
