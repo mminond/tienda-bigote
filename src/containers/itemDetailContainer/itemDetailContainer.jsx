@@ -8,6 +8,7 @@ function ItemDetailContainer({id}) {
 	var itemDetail = [];
 
 	AllItems.forEach(item => {
+		// eslint-disable-next-line
 		if (item.productId == id ) {
 			itemDetail.push(item);
 		}
