@@ -3,7 +3,11 @@ import './WidgetCart.scss';
 function WidgetCart() {
 	return (
 		<div className="widgetCart">
-            Carrito
+            <h3 className="titleWidgetCart">Carrito de Compras</h3>
+			<div className="listItemsidgetCart">
+
+			</div>
+			<button className="btnCheckOutWidgetCart">Hacer Checkout</button>
 		</div>
 	);
 }
