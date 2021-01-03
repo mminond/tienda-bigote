@@ -1,14 +1,13 @@
 .itemlistcontainer{
-    background-color: #fdf38b;
+    padding: 10px;
     .itemlist-title{
-        display: flex;
-        flex-direction: row;
-	    flex-wrap: wrap;
-	    justify-content: center;
-	    align-items: center;
-	    align-content: center;
+        background-color: #d796c2;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 40px;
         h3{
             margin: 0px;
+            padding: 10px 15px 10px 15px;
             font-family: 'Mouse Memoirs', sans-serif;
             font-size: 2rem;
             font-weight: normal;
