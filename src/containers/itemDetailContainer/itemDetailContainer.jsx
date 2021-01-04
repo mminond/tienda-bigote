@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './itemDetailContainer.scss';
 import ProductDetail from '../../components/productDetail/productDetail';
 import AllItems from '../../assets/json/products.json';
 

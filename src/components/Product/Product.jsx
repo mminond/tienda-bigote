@@ -16,7 +16,6 @@ function Product({ id, image, title, price, stock }) {
 		setCount(count - 1);
 	};
 
-
 	return (
 		<div className="productCard" id={id}>
 			<img className="productImg" src={image} alt={"Foto de " + title} />
