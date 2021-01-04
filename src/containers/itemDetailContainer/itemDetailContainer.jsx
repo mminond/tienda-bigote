@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react';
 import ProductDetail from '../../components/productDetail/productDetail';
 import AllItems from '../../assets/json/products.json';
 
-function ItemDetailContainer({id}) {
+function ItemDetailContainer({ id }) {
 	const [product, setProduct] = useState([]);
 	var itemDetail = [];
 
 	AllItems.forEach(item => {
-		// eslint-disable-next-line
-		if (item.productId == id ) {
+		if (item.productId.toString() === id) {
 			itemDetail.push(item);
 		}
 	});
@@ -20,7 +19,8 @@ function ItemDetailContainer({id}) {
 	});
 
 	useEffect(() => {
-		getProduct.then(rta => setProduct(rta));
+		getProduct
+			.then(rta => setProduct(rta))
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 

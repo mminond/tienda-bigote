@@ -20,7 +20,7 @@ function ProductDetail({ id, image, title, price, stock }) {
 
 	const handleClickAdd = (e) => {
 		alert("Producto agregado al carrito");
-		history.push('/cart')
+		history.push('/cart');
 	}
 	return (
 		<article className="productDetail">
