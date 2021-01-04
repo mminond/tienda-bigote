@@ -1,9 +1,12 @@
 import './productDetail.scss';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import CountContainer from '../Product/CountContainer';
 
 function ProductDetail({ id, image, title, price, stock }) {
 	const [count, setCount] = useState(1);
+	let history = useHistory();
+
 
 	const add = () => {
 		if (count < stock) {
@@ -14,6 +17,11 @@ function ProductDetail({ id, image, title, price, stock }) {
 	const less = () => {
 		setCount(count - 1);
 	};
+
+	const handleClickAdd = (e) => {
+		alert("Producto agregado al carrito");
+		history.push('/cart')
+	}
 	return (
 		<article className="productDetail">
 			<div className="imgProductDetail">
@@ -25,6 +33,7 @@ function ProductDetail({ id, image, title, price, stock }) {
 				<h3>Stock Disponible: {stock}</h3>
 				<CountContainer stock={stock} count={count} add={add} less={less} />
 			</div>
+			<button onClick={handleClickAdd}>Agregar al carrito</button>
 		</article>
 	);
 }
