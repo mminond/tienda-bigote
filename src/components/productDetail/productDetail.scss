@@ -1,7 +1,20 @@
 .productDetail{
     background-color: white;
-    padding: 10px 10px 20px 30px;
+    padding: 20px;
     border-radius: 25px;
-    margin: 0px 20px 30px 20px;
+    margin: 0px 10% 0px 10%;
     font-family: 'Mouse Memoirs', sans-serif;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+    align-content: stretch;
+    .descriptionProductDetail{
+        margin-left: 20px;
+    }
+    .imgProductDetail{
+        height: 200px;
+        width: 200px;
+    }
 }
