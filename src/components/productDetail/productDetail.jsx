@@ -1,11 +1,13 @@
 import './productDetail.scss';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState, useContext } from 'react';
+//import { useHistory } from 'react-router-dom';
 import CountContainer from '../Product/CountContainer';
+import {Store} from '../../store'
 
 function ProductDetail({ id, image, title, price, stock }) {
+	const [data, setData] = useContext(Store); 
 	const [count, setCount] = useState(1);
-	let history = useHistory();
+	//let history = useHistory();
 
 
 	const add = () => {
@@ -19,9 +21,15 @@ function ProductDetail({ id, image, title, price, stock }) {
 	};
 
 	const handleClickAdd = (e) => {
-		alert("Producto agregado al carrito");
-		history.push('/cart');
+		setData({
+			...data,
+			cantidad: data.cantidad + count,
+			items: [...data.items, title]
+		});
+		//alert(`Agregaste ${count} productos al carrito`);
+		//history.push('/cart');
 	}
+	console.log(data);
 	return (
 		<article className="productDetail">
 			<div className="imgProductDetail">

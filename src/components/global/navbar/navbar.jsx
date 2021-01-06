@@ -16,7 +16,6 @@ const Navbar = () => {
 			<Cart
 				actionCart={openWidgetCart}
 				showWidgetCart={isVisibleWidgetCart}
-				cartQty={0}
 			/>
 			<WidgetCart
 				actionCart={openWidgetCart}
