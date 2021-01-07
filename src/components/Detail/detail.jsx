@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
-import './productDetail.scss';
-import ItemDetailContainer from "../containers/itemDetailContainer/itemDetailContainer";
-import Item404 from '../Item404/item404';
-import AllItems from '../assets/json/products.json';
+import './detail.scss';
+import ItemDetailContainer from "../../containers/itemDetailContainer/itemDetailContainer";
+import Item404 from '../Error404/error404';
+import AllItems from '../../assets/json/products.json';
 
 function ProductDetail() {
 	const { itemId } = useParams();
