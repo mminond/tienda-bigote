@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react";
-import './Product.scss';
+import './ProductCard.scss';
 import CountContainer from "./CountContainer";
 
 function Product({ id, image, title, price, stock }) {

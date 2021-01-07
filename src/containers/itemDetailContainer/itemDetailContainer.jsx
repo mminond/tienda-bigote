@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ProductDetail from '../../components/productDetail/productDetail';
+import ProductDetail from '../../components/ProductDetail/productDetail-real/productDetail';
 import AllItems from '../../assets/json/products.json';
 
 function ItemDetailContainer({ id }) {

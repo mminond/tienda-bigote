@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './itemlistcontainer.scss';
-import Product from '../../components/Product/Product';
+import Product from '../../components/ProductCard/ProductCard';
 import AllItems from '../../assets/json/products.json';
 
 

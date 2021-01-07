@@ -1,48 +1,27 @@
+import { useParams } from 'react-router-dom';
 import './productDetail.scss';
-import { useState, useContext } from 'react';
-//import { useHistory } from 'react-router-dom';
-import CountContainer from '../Product/CountContainer';
-import {Store} from '../../store'
+import ItemDetailContainer from "../../containers/itemDetailContainer/itemDetailContainer";
+import Item404 from './Item404/item404';
+import AllItems from '../../assets/json/products.json';
 
-function ProductDetail({ id, image, title, price, stock }) {
-	const [data, setData] = useContext(Store); 
-	const [count, setCount] = useState(1);
-	//let history = useHistory();
-
-
-	const add = () => {
-		if (count < stock) {
-			setCount(count + 1);
+function ProductDetail() {
+	const { itemId } = useParams();
+	var doesExist = false;
+	AllItems.forEach(item => {
+		if (item.productId.toString() === itemId) {
+			doesExist = true;
 		}
-	};
+	});
 
-	const less = () => {
-		setCount(count - 1);
-	};
-
-	const handleClickAdd = (e) => {
-		setData({
-			...data,
-			cantidad: data.cantidad + count,
-			items: [...data.items, title]
-		});
-		//alert(`Agregaste ${count} productos al carrito`);
-		//history.push('/cart');
-	}
-	console.log(data);
 	return (
-		<article className="productDetail">
-			<div className="imgProductDetail">
-				<img src="#" alt="Foto Producto" />
-			</div>
-			<div className="descriptionProductDetail">
-				<h1>{title}</h1>
-				<h2>${price}</h2>
-				<h3>Stock Disponible: {stock}</h3>
-				<CountContainer stock={stock} count={count} add={add} less={less} />
-			</div>
-			<button onClick={handleClickAdd}>Agregar al carrito</button>
-		</article>
+		<>
+			{
+				doesExist ?
+					<ItemDetailContainer id={itemId} /> :
+					<Item404 />
+			}
+
+		</>
 	);
 }
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './dealsListContainer.scss';
-import DealsProductCard from '../../components/dealsProductCard/dealsProductCard'
+import DealsProductCard from '../../components/Home/dealsProductCard/dealsProductCard'
 import AllItems from '../../assets/json/products.json';
 
 function DealsListContainer() {
