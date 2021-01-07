@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/global/navbar/navbar';
 import Categories from './components/global/categories/categories';
 import Error404 from './components/Error404/error404';
-import Home from './Home/home';
+import Home from './components/Home/home';
 import Cart from './Cart/cart';
 import Category from './Category/category'
 import ProductDetail from './ProductDetail/productDetail'
