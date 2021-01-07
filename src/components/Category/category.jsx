@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import './category.scss';
-import Itemlistcontainer from "../containers/itemlistcontainer/itemlistcontainer";
+import Itemlistcontainer from "../../containers/itemlistcontainer/itemlistcontainer";
 
 function Category() {
 	const { categoryId } = useParams();
