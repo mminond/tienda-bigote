@@ -1,7 +1,7 @@
 import './productDetail.scss';
 import { useState, useContext } from 'react';
 //import { useHistory } from 'react-router-dom';
-import CountContainer from '../../ProductCard/CountContainer';
+import CountContainer from '../../global/ProductCard/CountContainer';
 import {Store} from '../../../store'
 
 function ProductDetail({ id, image, title, price, stock }) {
