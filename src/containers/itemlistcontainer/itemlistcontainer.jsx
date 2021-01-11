@@ -6,16 +6,11 @@ import AllItems from '../../assets/json/products.json';
 
 function ItemListContainer({categoryTitle, categoryId}) {
 	const [items, setItems] = useState([]);
-	var products = [];
-	AllItems.forEach(item => {
-		if (item.categoryId === categoryId) {
-			products.push(item);
-		}
-	});
+	const filteredProducts = AllItems.filter(p => p.categoryId === categoryId);
 
 	const getProducts = new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve(products);
+			resolve(filteredProducts);
 		}, 2000);
 	});
 
@@ -32,13 +27,9 @@ function ItemListContainer({categoryTitle, categoryId}) {
 			{
 				items.length ?
 					<div className="itemListProducts">
-						{products.map(product =>
+						{filteredProducts.map(product =>
 							<Product key={product.productId}
-								id={product.productId}
-								title={product.productTitle}
-								image={product.productImage}
-								price={product.productPrice}
-								stock={product.productStock}
+								item={product}
 							/>
 						)}
 					</div> :
