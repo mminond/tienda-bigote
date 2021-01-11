@@ -4,17 +4,11 @@ import AllItems from '../../assets/json/products.json';
 
 function ItemDetailContainer({ id }) {
 	const [product, setProduct] = useState([]);
-	var itemDetail = [];
-
-	AllItems.forEach(item => {
-		if (item.productId.toString() === id) {
-			itemDetail.push(item);
-		}
-	});
+	const filteredProduct = AllItems.filter(p => p.productId.toString() === id);
 
 	const getProduct = new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve(itemDetail);
+			resolve(filteredProduct);
 		}, 2000);
 	});
 
@@ -28,12 +22,8 @@ function ItemDetailContainer({ id }) {
 		<section className="itemDetailContainer">
 			{
 				product.length ?
-					<ProductDetail key={itemDetail[0].productId}
-						id={itemDetail[0].productId}
-						title={itemDetail[0].productTitle}
-						image={itemDetail[0].productImage}
-						price={itemDetail[0].productPrice}
-						stock={itemDetail[0].productStock}
+					<ProductDetail key={filteredProduct[0].productId}
+						item={filteredProduct[0]}
 					/> :
 					<p className="cargando">Cargando</p>
 			}
