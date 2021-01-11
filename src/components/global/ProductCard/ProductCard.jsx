@@ -3,11 +3,13 @@ import { useState } from "react";
 import './ProductCard.scss';
 import CountContainer from "./CountContainer";
 
-function Product({ id, image, title, price, stock }) {
+function Product({ item }) {
 	const [count, setCount] = useState(1);
+	const backgroundImageRoute = "url(/img/products/imgProductId-" + item.productId + ".jpg)";
+	console.log(item);
 
 	const add = () => {
-		if (count < stock) {
+		if (count < item.productStock) {
 			setCount(count + 1);
 		}
 	};
@@ -17,13 +19,13 @@ function Product({ id, image, title, price, stock }) {
 	};
 
 	return (
-		<div className="productCard" id={id}>
-			<img className="productImg" src={image} alt={"Foto de " + title} />
-			<h3 className="productTitle">{title}</h3>
-			<p className="productPrice">${price}</p>
-			<CountContainer stock={stock} count={count} add={add} less={less} />
+		<div className="productCard" id={item.productId}>
+			<img className="productImg" src={backgroundImageRoute} alt={"Foto de " + item.productTitle} />
+			<h3 className="productTitle">{item.productTitle}</h3>
+			<p className="productPrice">${item.productPrice}</p>
+			<CountContainer stock={item.productStock} count={count} add={add} less={less} />
 			<button className="productAdd">Agregar</button>
-			<Link to={"/detail/" + id} className="productAdd">Ver más</Link>
+			<Link to={"/detail/" + item.productId} className="productAdd">Ver más</Link>
 		</div>
 	);
 }
