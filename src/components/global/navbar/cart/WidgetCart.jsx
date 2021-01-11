@@ -12,8 +12,8 @@ function WidgetCart({ showWidgetCart }) {
 			<div className="listItemsidgetCart">
 				{
 					data.items.map(item =>
-						<div className="itemWidgetCart" key={item.productId}>
-							<h4 className="itemTitleWidgetCart">{item.productTitle}</h4>
+						<div className="itemWidgetCart" key={item.item.productId}>
+							<h4 className="itemTitleWidgetCart">{item.item.productTitle} <span className="itemSpanTitleWidgetCart">x{item.count}</span></h4>
 							<button className="itemButtonWidgetCart"><HiTrash size={24} color='white' /></button>
 						</div>
 					)

@@ -21,15 +21,15 @@ function ProductDetail({ item }) {
 	};
 
 	const handleClickAdd = (e) => {
+		let itemAndQty = {item, count}
 		setData({
 			...data,
 			cantidad: data.cantidad + count,
-			items: [...data.items, item]
+			items: [...data.items, itemAndQty]
 		});
 		//alert(`Agregaste ${count} productos al carrito`);
 		//history.push('/cart');
 	}
-	console.log(data);
 	return (
 		<article className="productDetail">
 			<div className="imgProductDetail">
