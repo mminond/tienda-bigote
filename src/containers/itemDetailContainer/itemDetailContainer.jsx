@@ -22,7 +22,7 @@ function ItemDetailContainer({ id }) {
 		<section className="itemDetailContainer">
 			{
 				product.length ?
-					<ProductDetail key={filteredProduct[0].productId}
+					<ProductDetail
 						item={filteredProduct[0]}
 					/> :
 					<p className="cargando">Cargando</p>
