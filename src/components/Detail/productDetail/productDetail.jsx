@@ -4,14 +4,14 @@ import { useState, useContext } from 'react';
 import CountContainer from '../../global/ProductCard/CountContainer';
 import {Store} from '../../../store'
 
-function ProductDetail({ id, image, title, price, stock }) {
+function ProductDetail({ item }) {
 	const [data, setData] = useContext(Store); 
 	const [count, setCount] = useState(1);
 	//let history = useHistory();
 
 
 	const add = () => {
-		if (count < stock) {
+		if (count < item.productStock) {
 			setCount(count + 1);
 		}
 	};
@@ -24,7 +24,7 @@ function ProductDetail({ id, image, title, price, stock }) {
 		setData({
 			...data,
 			cantidad: data.cantidad + count,
-			items: [...data.items, title]
+			items: [...data.items, item]
 		});
 		//alert(`Agregaste ${count} productos al carrito`);
 		//history.push('/cart');
@@ -36,10 +36,10 @@ function ProductDetail({ id, image, title, price, stock }) {
 				<img src="#" alt="Foto Producto" />
 			</div>
 			<div className="descriptionProductDetail">
-				<h1>{title}</h1>
-				<h2>${price}</h2>
-				<h3>Stock Disponible: {stock}</h3>
-				<CountContainer stock={stock} count={count} add={add} less={less} />
+				<h1>{item.productTitle}</h1>
+				<h2>${item.productPrice}</h2>
+				<h3>Stock Disponible: {item.productStock}</h3>
+				<CountContainer stock={item.productStock} count={count} add={add} less={less} />
 			</div>
 			<button onClick={handleClickAdd}>Agregar al carrito</button>
 		</article>
