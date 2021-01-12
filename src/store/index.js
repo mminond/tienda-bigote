@@ -34,7 +34,10 @@ export function CartProvider({ initialValue = {}, children }) {
     }
 
     function clearCart() {
-        setCart([]);
+        setCart({
+            cantidad: 0,
+            items: []
+        });
     }
 
     return <CartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>

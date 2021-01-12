@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCartContext } from '../../../../store'
 import { HiTrash } from "react-icons/hi";
 import './WidgetCart.scss';
@@ -36,7 +37,7 @@ function WidgetCart({ showWidgetCart }) {
 					)
 				}
 			</div>
-			<button className="btnCheckOutWidgetCart">Hacer Checkout</button>
+			<Link to="/cart" className="btnCheckOutWidgetCart">Hacer Checkout</Link>
 		</div>
 	);
 }
