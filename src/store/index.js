@@ -10,6 +10,7 @@ export function CartProvider({ initialValue = {}, children }) {
     function addItem(newItem) {
         const newCart = {
             ...cart,
+            precioFinal: cart.precioFinal + (newItem.count * newItem.item.productPrice),
             cantidad: cart.cantidad + newItem.count,
             items: [...cart.items, newItem]
         };
@@ -21,11 +22,15 @@ export function CartProvider({ initialValue = {}, children }) {
         const indexProduct = cart.items.findIndex(item => {
             return item.item.productId.toString() === itemId;
         });
+        console.log(cart.items[indexProduct].count);
+        //console.log(cart.items[itemId].item.productPrice);
         let copyCart = cart.items;
+        //const newFinalPrice = cart.precioFinal - (cart.items[indexProduct].count * cart.items[itemId].item.productPrice);
         const newCount = cart.cantidad - cart.items[indexProduct].count;
         copyCart.splice(indexProduct, 1);
         const newCart = {
             ...cart,
+            //precioFinal:newFinalPrice,
             cantidad: newCount,
             items: copyCart
         };
@@ -35,6 +40,7 @@ export function CartProvider({ initialValue = {}, children }) {
 
     function clearCart() {
         setCart({
+            precioFinal: 0,
             cantidad: 0,
             items: []
         });

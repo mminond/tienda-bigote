@@ -10,8 +10,9 @@ import ProductDetail from './components/Detail/detail'
 
 function App() {
 	const valorIncial = {
-		items: [],
+		precioFinal: 0,
 		cantidad: 0,
+		items: [],
 	};
 	return (
 		<CartProvider initialValue={valorIncial}>
