@@ -1,14 +1,11 @@
 import './productDetail.scss';
-import { useState, useContext } from 'react';
-//import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 import CountContainer from '../../global/ProductCard/CountContainer';
-import {Store} from '../../../store'
+import { useCartContext } from '../../../store'
 
 function ProductDetail({ item }) {
-	const [data, setData] = useContext(Store); 
+	const { addItem } = useCartContext();
 	const [count, setCount] = useState(1);
-	//let history = useHistory();
-
 
 	const add = () => {
 		if (count < item.productStock) {
@@ -21,14 +18,7 @@ function ProductDetail({ item }) {
 	};
 
 	const handleClickAdd = (e) => {
-		let itemAndQty = {item, count}
-		setData({
-			...data,
-			cantidad: data.cantidad + count,
-			items: [...data.items, itemAndQty]
-		});
-		//alert(`Agregaste ${count} productos al carrito`);
-		//history.push('/cart');
+		addItem({ item: item, count: count });
 	}
 	return (
 		<article className="productDetail">

@@ -1,5 +1,5 @@
-import {useState} from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { CartProvider } from './store';
 import Navbar from './components/global/navbar/navbar';
 import Categories from './components/global/categories/categories';
 import Error404 from './components/Error404/error404';
@@ -7,16 +7,14 @@ import Home from './components/Home/home';
 import Cart from './components/Cart/cart';
 import Category from './components/Category/category'
 import ProductDetail from './components/Detail/detail'
-import { Store } from './store';
 
 function App() {
-	const [data, setData] = useState({
+	const valorIncial = {
 		items: [],
 		cantidad: 0,
-	});
-
+	};
 	return (
-		<Store.Provider value={[data, setData]}>
+		<CartProvider initialValue={valorIncial}>
 			<BrowserRouter>
 				<Navbar />
 				<Categories />
@@ -38,7 +36,7 @@ function App() {
 					</Route>
 				</Switch>
 			</BrowserRouter>
-		</Store.Provider>
+		</CartProvider>
 	);
 }
 
