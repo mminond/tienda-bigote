@@ -20,17 +20,16 @@ export function CartProvider({ initialValue = {}, children }) {
 
     function removeItem(itemId) {
         const indexProduct = cart.items.findIndex(item => {
-            return item.item.productId.toString() === itemId;
+            return item.item.productId === itemId;
         });
-        console.log(cart.items[indexProduct].count);
-        //console.log(cart.items[itemId].item.productPrice);
-        let copyCart = cart.items;
-        //const newFinalPrice = cart.precioFinal - (cart.items[indexProduct].count * cart.items[itemId].item.productPrice);
-        const newCount = cart.cantidad - cart.items[indexProduct].count;
+        let copyCart = [...cart.items];
+        const products = cart.items[indexProduct];
+        const newFinalPrice = cart.precioFinal - (products.count * products.item.productPrice);
+        const newCount = cart.cantidad - products.count;
         copyCart.splice(indexProduct, 1);
         const newCart = {
             ...cart,
-            //precioFinal:newFinalPrice,
+            precioFinal:newFinalPrice,
             cantidad: newCount,
             items: copyCart
         };
