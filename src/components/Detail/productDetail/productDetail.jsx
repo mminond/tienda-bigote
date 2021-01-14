@@ -17,9 +17,6 @@ function ProductDetail({ item }) {
 		setCount(count - 1);
 	};
 
-	const handleClickAdd = (e) => {
-		addItem({ item: item, count: count });
-	}
 	return (
 		<article className="productDetail">
 			<div className="imgProductDetail">
@@ -31,7 +28,7 @@ function ProductDetail({ item }) {
 				<h3>Stock Disponible: {item.productStock}</h3>
 				<CountContainer stock={item.productStock} count={count} add={add} less={less} />
 			</div>
-			<button onClick={handleClickAdd}>Agregar al carrito</button>
+			<button onClick={()=>{addItem({ item: item, count: count })}}>Agregar al carrito</button>
 		</article>
 	);
 }
