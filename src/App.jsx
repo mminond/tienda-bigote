@@ -6,7 +6,7 @@ import Error404 from './components/Error404/error404';
 import Home from './components/Home/home';
 import Cart from './components/Cart/cart';
 import Category from './components/Category/category'
-import ProductDetail from './components/Detail/detail'
+import ProductDetail from './components/Detail/DetailProduct'
 
 function App() {
 	const valorIncial = {

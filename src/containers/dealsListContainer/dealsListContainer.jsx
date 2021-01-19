@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react';
 import './dealsListContainer.scss';
 import DealsProductCard from '../../components/Home/dealsProductCard/dealsProductCard'
-import AllItems from '../../assets/json/products.json';
+import { getFirestore } from '../../db'
 
 function DealsListContainer() {
     const [items, setItems] = useState([]);
-    var products = [];
-    AllItems.forEach(item => {
-        if (item.isDeal) {
-            products.push(item);
-        }
-    });
+    const db = getFirestore();
 
-    const getProducts = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products);
-        }, 2000);
-    });
+    const getProductsFromDB = () => {
+        db.collection('productos')
+            .where('isDeal', '==', true)
+            .get()
+            .then(docs => {
+                let arr = [];
+                docs.forEach(doc => {
+                    arr.push({ id: doc.id, data: doc.data() });
+                })
+                setItems(arr);
+            })
+            .catch(e => console.log(e))
+    }
 
     useEffect(() => {
-        getProducts.then(rta => setItems(rta));
+        getProductsFromDB();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -31,13 +34,13 @@ function DealsListContainer() {
             {
                 items.length ?
                     <div className="itemListProducts">
-                        {products.map(product =>
-                            <DealsProductCard key={product.productId}
-                                id={product.productId}
-                                title={product.productTitle}
-                                image={product.productImage}
-                                price={product.productPrice}
-                                stock={product.productStock}
+                        {items.map(product =>
+                            <DealsProductCard key={product.id}
+                                id={product.id}
+                                title={product.data.productTitle}
+                                image={product.data.productImage}
+                                price={product.data.productPrice}
+                                stock={product.data.productStock}
                             />
                         )}
                     </div> :

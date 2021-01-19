@@ -10,8 +10,6 @@ export function CartProvider({ initialValue = {}, children }) {
     function addItem(newItem) {
         const found = cart.items.find( item => item.item.productId === newItem.item.productId);
         if(found !== undefined){
-            console.log(found, found.count);
-            console.log(newItem, newItem.count);
             const updateProduct = newItem.item;
             const updateCount = newItem.count + found.count;
             const updateItem = {item: updateProduct, count: updateCount};

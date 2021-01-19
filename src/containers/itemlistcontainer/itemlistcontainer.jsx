@@ -1,21 +1,28 @@
 import { useState, useEffect } from 'react';
 import './itemlistcontainer.scss';
 import Product from '../../components/global/ProductCard/ProductCard';
-import AllItems from '../../assets/json/products.json';
+import { getFirestore } from '../../db'
 
-
-function ItemListContainer({categoryTitle, categoryId}) {
+function ItemListContainer({ categoryTitle, categoryId }) {
 	const [items, setItems] = useState([]);
-	const filteredProducts = AllItems.filter(p => p.categoryId === categoryId);
+	const db = getFirestore();
 
-	const getProducts = new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve(filteredProducts);
-		}, 2000);
-	});
+	const getProductsFromDB = () => {
+		db.collection('productos')
+			.where('categoryId', '==', categoryId)
+			.get()
+			.then(docs => {
+				let arr = [];
+				docs.forEach(doc => {
+					arr.push({ id: doc.id, data: doc.data() });
+				})
+				setItems(arr);
+			})
+			.catch(e => console.log(e))
+	}
 
 	useEffect(() => {
-		getProducts.then(rta => setItems(rta));
+		getProductsFromDB();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -27,8 +34,8 @@ function ItemListContainer({categoryTitle, categoryId}) {
 			{
 				items.length ?
 					<div className="itemListProducts">
-						{filteredProducts.map(product =>
-							<Product key={product.productId}
+						{items.map(product =>
+							<Product key={product.id}
 								item={product}
 							/>
 						)}
