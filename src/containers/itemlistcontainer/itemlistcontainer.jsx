@@ -7,9 +7,9 @@ function ItemListContainer({ categoryTitle, categoryId }) {
 	const [items, setItems] = useState([]);
 	const db = getFirestore();
 
-	const getProductsFromDB = () => {
+	const getProductsFromDB = (catId) => {
 		db.collection('productos')
-			.where('categoryId', '==', categoryId)
+			.where('categoryId', '==', catId)
 			.get()
 			.then(docs => {
 				let arr = [];
@@ -19,12 +19,13 @@ function ItemListContainer({ categoryTitle, categoryId }) {
 				setItems(arr);
 			})
 			.catch(e => console.log(e))
+			console.log(items);
 	}
 
 	useEffect(() => {
-		getProductsFromDB();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		getProductsFromDB(categoryId);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [categoryId]);
 
 	return (
 		<div className="itemlistcontainer">

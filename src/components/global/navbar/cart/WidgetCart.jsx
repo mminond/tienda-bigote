@@ -12,9 +12,9 @@ function WidgetCart({ showWidgetCart }) {
 			<div className="listItemsidgetCart">
 				{
 					cart.items.map(item =>
-						<div className="itemWidgetCart" key={item.item.data.productId}>
+						<div className="itemWidgetCart" key={item.item.id}>
 							<h4 className="itemTitleWidgetCart">{item.item.data.productTitle} <span className="itemSpanTitleWidgetCart">x{item.count}</span></h4>
-							<button id={item.item.data.productId} onClick={() => removeItem(item.item.data.productId)} className="itemButtonWidgetCart"><HiTrash size={24} color='white' /></button>
+							<button id={item.item.id} onClick={() => removeItem(item.item.data.productId)} className="itemButtonWidgetCart"><HiTrash size={24} color='white' /></button>
 						</div>
 					)
 				}
