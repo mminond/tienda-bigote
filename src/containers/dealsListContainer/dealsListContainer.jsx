@@ -38,7 +38,7 @@ function DealsListContainer() {
                             <DealsProductCard key={product.id}
                                 id={product.id}
                                 title={product.data.productTitle}
-                                image={product.data.productImage}
+                                image={product.data.image}
                                 price={product.data.productPrice}
                                 stock={product.data.productStock}
                             />

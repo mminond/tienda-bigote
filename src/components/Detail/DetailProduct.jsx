@@ -44,7 +44,7 @@ function ProductDetail() {
                 product ?
                     <article className="productDetail">
                         <div className="imgProductDetail">
-                            <img src="#" alt="Foto Producto" />
+                            <img src={`/img/products/${product.data.image}`} alt="Foto Producto" />
                         </div>
                         <div className="descriptionProductDetail">
                             <h1>{product.data.productTitle}</h1>
