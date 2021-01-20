@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import { useCartContext } from '../../store';
 import { HiTrash } from "react-icons/hi";
 import './cart.scss';
 
-function Home() {
+function Cart() {
   const { cart, removeItem } = useCartContext();
   return (
     <section className="sectionCart">
@@ -35,11 +36,11 @@ function Home() {
         <aside className="cartLastStep">
           <h2 className="finalPrice">${cart.precioFinal}</h2>
           <p>Precio Final</p>
-          <button className="btnCheckout">Checkout</button>
+          <Link to="/checkout" className="btnCheckout">Hacer Checkout</Link>
         </aside>
       </div>
     </section>
   );
 }
 
-export default Home;
+export default Cart;

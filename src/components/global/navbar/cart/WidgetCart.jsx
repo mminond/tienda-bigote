@@ -19,7 +19,7 @@ function WidgetCart({ showWidgetCart }) {
 					)
 				}
 			</div>
-			<Link to="/cart" className="btnCheckOutWidgetCart">Hacer Checkout</Link>
+			<Link to="/cart" className="btnCheckOutWidgetCart">Ver el Detalle</Link>
 		</div>
 	);
 }

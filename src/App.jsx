@@ -5,6 +5,7 @@ import Categories from './components/global/categories/categories';
 import Error404 from './components/Error404/error404';
 import Home from './components/Home/home';
 import Cart from './components/Cart/cart';
+import Checkout from './components/Checkout/checkout';
 import Category from './components/Category/category'
 import ProductDetail from './components/Detail/DetailProduct'
 
@@ -25,6 +26,9 @@ function App() {
 					</Route>
 					<Route path="/cart">
 						<Cart />
+					</Route>
+					<Route path="/checkout">
+						<Checkout />
 					</Route>
 					<Route path="/detail/:itemId">
 						<ProductDetail />
