@@ -19,7 +19,6 @@ function ItemListContainer({ categoryTitle, categoryId }) {
 				setItems(arr);
 			})
 			.catch(e => console.log(e))
-			console.log(items);
 	}
 
 	useEffect(() => {

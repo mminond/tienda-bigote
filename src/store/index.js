@@ -6,21 +6,23 @@ export const useCartContext = () => useContext(CartContext);
 
 export function CartProvider({ initialValue = {}, children }) {
     const [cart, setCart] = useState(initialValue);
-
+    console.log(cart.precioFinal);
     function addItem(newItem) {
-        const found = cart.items.find( item => item.item.productId === newItem.item.productId);
+        console.log(cart.items);
+        console.log(cart);
+        const found = cart.items.find( item => item.item.id === newItem.item.id);
         if(found !== undefined){
             const updateProduct = newItem.item;
             const updateCount = newItem.count + found.count;
             const updateItem = {item: updateProduct, count: updateCount};
             const indexProduct = cart.items.findIndex(item => {
-                return item.item.productId === newItem.item.productId;
+                return item.item.id === newItem.item.id;
             });
             let copyCart = [...cart.items];
             copyCart.splice(indexProduct, 1);
             const newCart = {
                 ...cart,
-                precioFinal: cart.precioFinal + (newItem.count * newItem.item.productPrice),
+                precioFinal: cart.precioFinal + (newItem.count * newItem.item.data.productPrice),
                 cantidad: cart.cantidad + newItem.count,
                 items: [...copyCart, updateItem]
             };
@@ -29,7 +31,7 @@ export function CartProvider({ initialValue = {}, children }) {
         }else{
             const newCart = {
                 ...cart,
-                precioFinal: cart.precioFinal + (newItem.count * newItem.item.productPrice),
+                precioFinal: cart.precioFinal + (newItem.count * newItem.item.data.productPrice),
                 cantidad: cart.cantidad + newItem.count,
                 items: [...cart.items, newItem]
             };
@@ -44,7 +46,7 @@ export function CartProvider({ initialValue = {}, children }) {
         });
         let copyCart = [...cart.items];
         const product = cart.items[indexProduct];
-        const newFinalPrice = cart.precioFinal - (product.count * product.item.productPrice);
+        const newFinalPrice = cart.precioFinal - (product.count * product.item.data.productPrice);
         const newCount = cart.cantidad - product.count;
         copyCart.splice(indexProduct, 1);
         const newCart = {

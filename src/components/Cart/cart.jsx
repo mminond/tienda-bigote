@@ -4,7 +4,6 @@ import './cart.scss';
 
 function Home() {
   const { cart, removeItem } = useCartContext();
-
   return (
     <section className="sectionCart">
       <h3 className="titleCart">Carrito de Compras</h3>
@@ -22,12 +21,12 @@ function Home() {
           <tbody>
             {
               cart.items.map(item =>
-                <tr key={item.item.productId}>
-                  <td>{item.item.productTitle}</td>
+                <tr key={item.item.id}>
+                  <td>{item.item.data.productTitle}</td>
                   <td>{item.count}</td>
-                  <td>${item.item.productPrice}</td>
-                  <td>${item.item.productPrice * item.count}</td>
-                  <td><button id={item.item.productId} onClick={() => removeItem(item.item.productId)} className="btnItemDelete"><HiTrash size={20} color='white' /></button></td>
+                  <td>${item.item.data.productPrice}</td>
+                  <td>${item.item.data.productPrice * item.count}</td>
+                  <td><button id={item.item.id} onClick={() => removeItem(item.item.data.productId)} className="btnItemDelete"><HiTrash size={20} color='white' /></button></td>
                 </tr>
               )
             }
