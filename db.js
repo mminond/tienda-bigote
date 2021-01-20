@@ -2,9 +2,9 @@ const firebase = require('firebase');
 require("firebase/firestore");
 
 firebase.initializeApp({
-    apiKey: "",
-    authDomain: "",
-    projectId: ""
+    apiKey: process.env.API_KEY,
+    authDomain: "tienda-bigote.firebaseapp.com",
+    projectId:  "tienda-bigote",
 });
 
 var db = firebase.firestore();
