@@ -52,11 +52,10 @@ function ProductDetail() {
                             <h3>Stock Disponible: {product.data.productStock}</h3>
                             <CountContainer stock={product.data.productStock} count={count} add={add} less={less} />
                         </div>
-                        <button onClick={() => { addItem({ item: product, count: count }) }}>Agregar al carrito</button>
+                        <button className="detailAddCart" onClick={() => { addItem({ item: product, count: count }) }}>Agregar al carrito</button>
                     </article> :
                     <Item404 />
             }
-
         </>
     );
 }

@@ -6,17 +6,20 @@
 	justify-content: flex-start;
 	align-items: stretch;
 	background-color: #6fccd9;
-	padding: 20px;
+	padding: 10px;
 	margin: 10px;
 	border-radius: 20px;
+	width: 100px;
 	.productImg{
 		height: 100px;
 		width: 100px;
+		border-radius: 10px;
+		margin-bottom: 10px;
 	}
 	.productTitle{
 		margin: 0px;
 		font-weight: normal;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 	}
 	.productPrice{
 		margin: 0px;
@@ -30,7 +33,7 @@
 		border: none;
         text-decoration: none;
 		outline: none;
-		border-radius: 50px;
+		border-radius: 10px;
 		padding: 10px;
 		margin-top: 10px;
 		text-decoration: none;

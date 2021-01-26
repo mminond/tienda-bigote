@@ -1,8 +1,8 @@
 .productDetail{
     background-color: white;
     padding: 20px;
+    margin: 0px 10%;
     border-radius: 25px;
-    margin: 0px 10% 0px 10%;
     font-family: 'Mouse Memoirs', sans-serif;
     display: flex;
 	flex-direction: row;
@@ -10,11 +10,39 @@
 	justify-content: flex-start;
 	align-items: center;
     align-content: stretch;
+    .imgProductDetail{
+        img{
+            border-radius: 15px;
+            width: 200px;
+            height: 200px;
+        }
+    }
     .descriptionProductDetail{
         margin-left: 20px;
+        h1, h2, h3{
+            font-weight: normal;
+        }
     }
     .imgProductDetail{
         height: 200px;
         width: 200px;
+    }
+    .detailAddCart{
+        font-family: 'Mouse Memoirs', sans-serif;
+		font-size: 1.5rem;
+		background-color: #d796c2;
+		border: none;
+		text-decoration: none;
+		outline: none;
+		border-radius: 50px;
+		padding: 10px;
+		margin: 10px 0px 30px 0px;
+		color: black;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            background-color: #aa7599;
+			color: white;
+        }
     }
 }
