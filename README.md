@@ -7,7 +7,7 @@ Este proyecto es un e-commerce usando React JS. Los usuarios pueden visualizar u
 Este proyecto cuenta con:
 
 ### SASS
-Usado para trabajar mas comodamente los estilos y tambien usan sus funcionalidades de lógica, que aún no se encuentran en uso.
+Usado para trabajar mas comodamente los estilos y tambien usan sus funcionalidades de lógica.
 
 ### react-icons
 Para el uso de iconografía de forma simple y dinámica.
