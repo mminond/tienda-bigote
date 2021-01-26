@@ -6,7 +6,6 @@ export const useCartContext = () => useContext(CartContext);
 
 export function CartProvider({ initialValue = {}, children }) {
     const [cart, setCart] = useState(initialValue);
-    console.log(cart.precioFinal);
     function addItem(newItem) {
         console.log(cart.items);
         console.log(cart);

@@ -6,7 +6,9 @@ import firebase from 'firebase/app';
 
 function Checkout() {
     const db = getFirestore();
-    const { cart } = useCartContext();
+    const { cart, clearCart } = useCartContext();
+    const [dobleMail, setDobleMail] = useState(true);
+    const [todoCompleto, setTodoCompleto] = useState(false);
     const [formData, setFormData] = useState({
         nombre: '',
         apellido: '',
@@ -27,13 +29,47 @@ function Checkout() {
         totalPrice: cart.precioFinal,
         date: firebase.firestore.Timestamp.fromDate(new Date()),
     }
+
+    const updateStock = () => {
+        cart.items.forEach(element => {
+            //Traigo el stock viejo
+            db.collection('productos')
+                .doc(element.item.id)
+                .get()
+                .then(doc => {
+                    if (doc.exists) {
+                        //Actualizo el stock
+                        db.collection('productos').doc(element.item.id).update({
+                            productStock: doc.data().productStock - element.count,
+                        });
+                    }
+                })
+                .catch(e => console.log(e));
+        });
+
+
+    }
+
     const handleSubmitForm = () => {
-        db.collection('ventas').add(compra)
-            .then(({ id }) => {
-                setIdVenta(id);
-                completarVenta(true);
-            })
-            .catch(e => console.log(e));
+        var secondMail = document.getElementById("email2").value;
+        if (![formData.nombre, formData.apellido, formData.tel, formData.email, secondMail].includes("")) {
+            setTodoCompleto(true);
+            if (formData.email === secondMail) {
+                setDobleMail(true);
+                db.collection('ventas').add(compra)
+                    .then(({ id }) => {
+                        setIdVenta(id);
+                        completarVenta(true);
+                        updateStock();
+                        clearCart();
+                    })
+                    .catch(e => console.log(e));
+            } else {
+                setDobleMail(false);
+            }
+        } else {
+            setTodoCompleto(false);
+        }
     }
 
     return (
@@ -43,12 +79,39 @@ function Checkout() {
                 {
                     !venta ?
                         <>
+                            <table className="cartTable">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        cart.items.map(item =>
+                                            <tr key={item.item.id}>
+                                                <td>{item.item.data.productTitle}</td>
+                                                <td>{item.count}</td>
+                                                <td>${item.item.data.productPrice * item.count}</td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
                             <main className="mainForm">
                                 <form>
-                                    <input type="text" value={formData.nombre} onChange={handleChangeInput} name="nombre" placeholder="Nombre" />
-                                    <input type="text" value={formData.apellido} onChange={handleChangeInput} name="apellido" placeholder="Apellido" />
-                                    <input type="email" value={formData.email} onChange={handleChangeInput} name="email" placeholder="E-mail" />
-                                    <input type="tel" value={formData.tel} onChange={handleChangeInput} name="tel" placeholder="Teléfono" />
+                                    <div className="col">
+                                        <input type="text" value={formData.nombre} onChange={handleChangeInput} name="nombre" placeholder="Nombre" />
+                                        <input type="text" value={formData.apellido} onChange={handleChangeInput} name="apellido" placeholder="Apellido" />
+                                        <input type="tel" value={formData.tel} onChange={handleChangeInput} name="tel" placeholder="Teléfono" />
+                                    </div>
+                                    <div className="col">
+                                        <input type="email" value={formData.email} onChange={handleChangeInput} name="email" placeholder="E-mail" />
+                                        <input type="email" id="email2" name="email2" placeholder="Confirme su E-mail" />
+                                        <p className={`mensajeMails ${dobleMail ? "hide" : ""}`}>Los mails no coinciden</p>
+                                        <p className={`mensajeMails ${todoCompleto ? "hide" : ""}`}>Complete todos los campos</p>
+                                    </div>
                                 </form>
                             </main>
                             <aside className="cartLastStep">
